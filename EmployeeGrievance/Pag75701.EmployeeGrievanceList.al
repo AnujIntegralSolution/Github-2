@@ -51,10 +51,6 @@ page 80141 "Employee Grievance List"
                 {
                     applicationArea = All;
                 }
-                field("Closed Date"; Rec."Closed Date")
-                {
-                    applicationArea = All;
-                }
             }
         }
     }
