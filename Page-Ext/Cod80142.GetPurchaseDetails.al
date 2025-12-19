@@ -30,9 +30,6 @@ codeunit 80142 "Get Purchase Details"
             Message('%1', VarTotal);
         end;
     end;
-
-
-
     procedure GetPurchaseLineCount(pCode: code[20])
     var
         recVendor: Record Vendor;
@@ -75,15 +72,5 @@ codeunit 80142 "Get Purchase Details"
             Message('%1', Total);
         end;
     end;
-
-
-
-
-
-
-
-
-
-
 
 }
