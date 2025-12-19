@@ -13,9 +13,9 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                 PromotedIsBig = true;
                 trigger OnAction()
                 var
-                    MyCodeunit: Codeunit "Get Vendor Details";
+                    GetVendorCodeunit: Codeunit "Get Vendor Details";
                 begin
-                    MyCodeunit.Run();
+                    GetVendorCodeunit.Run(rec);
                 end;
             }
 
@@ -24,8 +24,6 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                 ApplicationArea = All;
                 Image = CodesList;
                 Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
 
                 trigger OnAction()
                 var
@@ -45,8 +43,7 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                 ApplicationArea = All;
                 Image = AmountByPeriod;
                 Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
+
 
                 trigger OnAction()
                 var
@@ -73,8 +70,6 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                 ApplicationArea = All;
                 Image = LineDescription;
                 Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
 
                 trigger OnAction()
                 var
@@ -102,8 +97,6 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                 ApplicationArea = All;
                 Image = AmountByPeriod;
                 Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
 
                 trigger OnAction()
                 var
@@ -127,13 +120,6 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                     end;
                 end;
             }
-
-
-
-
-
-
-
 
 
 

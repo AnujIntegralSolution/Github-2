@@ -1,13 +1,12 @@
 codeunit 80143 "Get Vendor Details"
 {
+    TableNo = Vendor;
 
     trigger OnRun()
     var
         recVendor: Record vendor;
     begin
-
-        if recVendor.get('50000') then
-            GetVendorDetails(recVendor."No.")
+        GetVendorDetails(rec."No.")
     end;
 
     procedure GetVendorDetails(pCode: code[20])
