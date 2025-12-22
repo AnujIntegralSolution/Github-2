@@ -42,8 +42,6 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                 ApplicationArea = All;
                 Image = AmountByPeriod;
                 Promoted = true;
-
-
                 trigger OnAction()
                 var
                     recVendor: Record Vendor;
@@ -122,12 +120,6 @@ pageextension 80143 "Vendor List" extends "Vendor List"
         }
     }
 }
-
-
-
-
-
-
 
 // action(GetCount)
 // {
