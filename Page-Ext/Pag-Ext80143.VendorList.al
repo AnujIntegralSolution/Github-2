@@ -4,13 +4,12 @@ pageextension 80143 "Vendor List" extends "Vendor List"
     {
         addafter("Sent Emails")
         {
+
             action(GetVendorName)
             {
                 ApplicationArea = All;
                 Image = CodesList;
                 Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
                 trigger OnAction()
                 var
                     GetVendorCodeunit: Codeunit "Get Vendor Details";
@@ -120,77 +119,81 @@ pageextension 80143 "Vendor List" extends "Vendor List"
                     end;
                 end;
             }
-
-
-
-            // action(GetCount)
-            // {
-            //     ApplicationArea = All;
-            //     Promoted = true;
-            //     PromotedCategory = Process;
-            //     PromotedIsBig = true;
-            //     trigger OnAction()
-            //     var
-            //         varCount: integer;
-            //     begin
-            //         varCount := GetPurchaseCount(rec."No.");
-            //         Message('%1', varCount);
-            //     end;
-            // }
-
-
-            // action(GetPurchaseAmount)
-            // {
-            //     ApplicationArea = All;
-            //     Promoted = true;
-            //     PromotedCategory = Process;
-            //     PromotedIsBig = true;
-            //     trigger OnAction()
-            //     var
-            //         varAmount: Decimal;
-            //     begin
-            //         varAmount := GetPurchaseAmount(rec."No.");
-            //         Message('%1', varAmount);
-            //     end;
-            // }
-
-
-
-            // action(GetPurchaseLineCount)
-            // {
-            //     ApplicationArea = All;
-            //     Promoted = true;
-            //     PromotedCategory = Process;
-            //     PromotedIsBig = true;
-            //     trigger OnAction()
-            //     var
-            //         varLineCount: integer;
-            //     begin
-            //         varLineCount := GetPurchaseLineCount(rec."No.");
-            //         Message('%1', varLineCount);
-            //     end;
-            // }
-
-            // action(GetPurchaseLineAmount)
-            // {
-            //     trigger OnAction()
-            //     var
-            //         varLineAmount: Decimal;
-            //     begin
-            //         varLineAmount := GetPurchaseLineAmount(rec."No.");
-            //         Message('%1', varLineAmount);
-            //     end;
-            // }
         }
     }
-
-
-    // trigger OnOpenPage()
-    // var
-    //     myInt: Integer;
-    // begin
-    //     Codeunit.Run(Codeunit::"Get Vendor Details");
-    // end;
-
-
 }
+
+
+
+
+
+
+
+// action(GetCount)
+// {
+//     ApplicationArea = All;
+//     Promoted = true;
+//     PromotedCategory = Process;
+//     PromotedIsBig = true;
+//     trigger OnAction()
+//     var
+//         varCount: integer;
+//     begin
+//         varCount := GetPurchaseCount(rec."No.");
+//         Message('%1', varCount);
+//     end;
+// }
+
+
+// action(GetPurchaseAmount)
+// {
+//     ApplicationArea = All;
+//     Promoted = true;
+//     PromotedCategory = Process;
+//     PromotedIsBig = true;
+//     trigger OnAction()
+//     var
+//         varAmount: Decimal;
+//     begin
+//         varAmount := GetPurchaseAmount(rec."No.");
+//         Message('%1', varAmount);
+//     end;
+// }
+
+
+
+// action(GetPurchaseLineCount)
+// {
+//     ApplicationArea = All;
+//     Promoted = true;
+//     PromotedCategory = Process;
+//     PromotedIsBig = true;
+//     trigger OnAction()
+//     var
+//         varLineCount: integer;
+//     begin
+//         varLineCount := GetPurchaseLineCount(rec."No.");
+//         Message('%1', varLineCount);
+//     end;
+// }
+
+// action(GetPurchaseLineAmount)
+// {
+//     trigger OnAction()
+//     var
+//         varLineAmount: Decimal;
+//     begin
+//         varLineAmount := GetPurchaseLineAmount(rec."No.");
+//         Message('%1', varLineAmount);
+//     end;
+// }
+
+
+// trigger OnOpenPage()
+// var
+//     myInt: Integer;
+// begin
+//     Codeunit.Run(Codeunit::"Get Vendor Details");
+// end;
+
+
