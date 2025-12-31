@@ -4,8 +4,6 @@ page 80156 "Cust. sales cue"
     Caption = 'Cust. sales cue';
     PageType = CardPart;
     SourceTable = "Cust. sales cue";
-
-
     layout
     {
         area(Content)
@@ -42,8 +40,4 @@ page 80156 "Cust. sales cue"
             }
         }
     }
-
-
-    var
-        varAmount: Decimal;
 }
