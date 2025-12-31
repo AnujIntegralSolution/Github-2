@@ -10,7 +10,7 @@ table 80148 "Sales Summary"
             Caption = 'Customer No.';
             TableRelation = Customer;
         }
-        field(2; "Customer Name"; Text[50])
+        field(2; "Customer Name"; Text[100])
         {
             Caption = 'Customer Name';
             FieldClass = FlowField;

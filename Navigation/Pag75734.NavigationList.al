@@ -53,7 +53,7 @@ page 80144 "Navigation List"
     {
         area(Processing)
         {
-            action(Navigation)
+            action(nevigate)
             {
                 ApplicationArea = Basic, Suite;
                 Promoted = true;
