@@ -85,6 +85,23 @@ table 80149 "GS Excel Import Buffer"
             DataClassification = CustomerContent;
 
         }
+
+
+        field(14; "Emp No."; code[20])
+        {
+            Caption = 'Emp No.';
+        }
+        field(15; "Emp E-mail"; text[50])
+        {
+            Caption = 'Emp E-mail';
+        }
+
+
+
+
+
+
+
     }
 
     keys
