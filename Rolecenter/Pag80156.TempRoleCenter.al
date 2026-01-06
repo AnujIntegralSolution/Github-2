@@ -1,7 +1,8 @@
-page 80158 "Temp Role Center"
+page 80156 "Temp Role Center"
 {
     Caption = 'Temp. Role Center';
     PageType = RoleCenter;
+    CardPageId = "Business Manager Role Center";
 
     layout
     {
@@ -11,14 +12,19 @@ page 80158 "Temp Role Center"
             {
                 ApplicationArea = Basic, Suite;
             }
-            part("Temp Cust.SalesOrd.Cue"; "Temp Customer Sales Order Cue")
+            part(Control16; "Activities")
             {
+                AccessByPermission = TableData "Activities Cue" = I;
                 ApplicationArea = Basic, Suite;
-                Caption = 'Sales Order';
             }
+
             part("Cust Sales Cue"; "Cust. sales cue")
             {
                 ApplicationArea = Suite;
+            }
+            part("Temp Cust.SalesOrd.Cue"; "Temp Customer Sales Order Cue")
+            {
+                ApplicationArea = Basic, Suite;
             }
 
         }

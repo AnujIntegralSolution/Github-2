@@ -18,11 +18,11 @@ page 80155 Employee
                     ApplicationArea = All;
                     trigger OnValidate()
                     begin
-                        Pattern := '[A-Z]{3}[0-9,A-Z]{3}';
-                        if Regex.IsMatch(Input, Pattern, 0) then
+                        Pattern := '[A-Z]{3}[0-9]{4}';
+                        if regex.IsMatch(Rec."Emp No.", Pattern, 0) then
                             Message('Match')
                         else
-                            Error('Please enter a valid input');
+                            Error('Please enter the valid input');
                     end;
                 }
                 field("Emp E-mail"; Rec."Emp E-mail")

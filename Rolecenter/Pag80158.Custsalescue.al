@@ -1,51 +1,44 @@
-page 80160 "Temp Customer Sales Order Cue"
+page 80158 "Cust. sales cue"
 {
     ApplicationArea = All;
-    Caption = 'Temp. Customer Sales Order Cue';
+    Caption = 'Cust. sales cue';
     PageType = CardPart;
-    SourceTable = Customer;
-
+    SourceTable = "Cust. sales cue";
     layout
     {
         area(Content)
         {
-            cuegroup(Overview)
+            cuegroup(General)
             {
-                Caption = 'Overview';
-
+                ShowCaption = false;
                 field("No. of Orders"; Rec."No. of Orders")
                 {
                     ApplicationArea = All;
                     DrillDownPageId = "Sales Order List";
                 }
-                field("No. of Invoices"; Rec."No. of Invoices")
+
+
+                field(Amount; rec.Amount)
+                {
+                    ApplicationArea = All;
+                    DrillDownPageId = "Sales Lines";
+                }
+                field("No. of Invoice"; Rec."No. of Invoice")
                 {
                     ApplicationArea = All;
                     DrillDownPageId = "Sales Invoice List";
                 }
-                field("No. of Pstd. Shipments"; Rec."No. of Pstd. Shipments")
+                field("Amount Including VAT"; Rec."Amount Including VAT")
                 {
                     ApplicationArea = All;
-                    DrillDownPageId = "Sales Order List";
+                    DrillDownPageId = "Sales Lines";
                 }
-                field("Inv. Amounts (LCY)"; Rec."Inv. Amounts (LCY)")
+                field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;
-                    Caption = 'Inv. Amounts';
+                    DrillDownPageId = "Sales Lines";
                 }
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-    var
-        varTotal: Decimal;
 }
