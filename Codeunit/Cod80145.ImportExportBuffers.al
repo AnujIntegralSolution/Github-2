@@ -170,32 +170,6 @@ codeunit 80145 "Import Export Buffers"
 
     // ------Excel Buffer -------///
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     var
         FileName: Text[100];
         SheetName: Text[100];
