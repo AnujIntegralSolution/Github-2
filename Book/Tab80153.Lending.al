@@ -34,7 +34,7 @@ table 80153 Lending
         field(6; Status; Option)
         {
             Caption = 'Status';
-            OptionMembers = Issued,Returned,Overdue;
+            OptionMembers = New,Issued,Returned,Overdue;
             NotBlank = true;
         }
         field(7; "Customer Name"; text[50])
@@ -50,6 +50,11 @@ table 80153 Lending
         field(9; "Fine Amount"; Decimal)
         {
             Caption = 'Fine Amount';
+            NotBlank = true;
+        }
+        field(10; "OverDue Date"; Date)
+        {
+            Caption = 'OverDue Date';
             NotBlank = true;
         }
     }

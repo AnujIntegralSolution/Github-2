@@ -5,6 +5,7 @@ page 80166 "Lending List"
     PageType = List;
     SourceTable = Lending;
     UsageCategory = Lists;
+    CardPageId = "Lending Card";
 
     layout
     {

@@ -4,12 +4,13 @@ page 80164 "Book List"
     Caption = 'Book List';
     PageType = Card;
     SourceTable = Book;
+    CardPageId = "Book Card";
 
     layout
     {
         area(Content)
         {
-            group(General)
+            repeater(General)
             {
                 Caption = 'General';
 

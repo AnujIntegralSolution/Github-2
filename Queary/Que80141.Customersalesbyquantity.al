@@ -4,10 +4,10 @@ query 80141 "Customer sales by quantity"
     QueryType = Normal;
     OrderBy = descending(Quantity);
 
+
     elements
     {
-        dataitem(Customer;
-        Customer)
+        dataitem(Customer; Customer)
         {
             column(No_; "No.")
             {
@@ -17,6 +17,9 @@ query 80141 "Customer sales by quantity"
             {
 
             }
+            column(Address; Address)
+            {
+            }
             dataitem(Sales_Line; "Sales Line")
             {
                 DataItemLink = "Sell-to Customer No." = Customer."No.";
@@ -24,16 +27,11 @@ query 80141 "Customer sales by quantity"
 
                 column(Quantity; Quantity)
                 {
-
+                }
+                column(Amount; Amount)
+                {
                 }
             }
-
-
         }
     }
-
-    trigger OnBeforeOpen()
-    begin
-
-    end;
 }
