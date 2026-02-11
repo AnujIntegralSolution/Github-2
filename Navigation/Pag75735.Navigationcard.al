@@ -19,7 +19,6 @@ page 80145 "Navigation Card"
                     {
                         ApplicationArea = All;
                         Importance = Standard;
-
                     }
                     field(Name; Rec.Name)
                     {
@@ -92,7 +91,6 @@ page 80145 "Navigation Card"
                         Importance = Additional;
                     }
                 }
-
             }
             group(Step2)
             {
@@ -112,25 +110,20 @@ page 80145 "Navigation Card"
                     field("Country/Region Code"; Rec."Country/Region Code")
                     {
                         ApplicationArea = Basic, Suite;
-
-
                     }
                     field(City; Rec.City)
                     {
                         ApplicationArea = Basic, Suite;
                     }
-
                     field(County; Rec.County)
                     {
                         ApplicationArea = Basic, Suite;
                     }
-
                     field("Post Code"; Rec."Post Code")
                     {
                         ApplicationArea = Basic, Suite;
                         Importance = Promoted;
                     }
-
                     field("Phone No."; Rec."Phone No.")
                     {
                         ApplicationArea = Basic, Suite;
@@ -175,7 +168,6 @@ page 80145 "Navigation Card"
                         ApplicationArea = Basic, Suite;
                         Caption = 'Primary Contact Code';
                     }
-
                 }
             }
             group(Step3)
@@ -235,7 +227,6 @@ page 80145 "Navigation Card"
                         ApplicationArea = Basic, Suite;
                         Importance = Additional;
                     }
-
                 }
             }
             group(Step4)
@@ -270,8 +261,6 @@ page 80145 "Navigation Card"
                     field("Block Payment Tolerance"; Rec."Block Payment Tolerance")
                     {
                         ApplicationArea = Basic, Suite;
-
-
                     }
                     field("Preferred Bank Account Code"; Rec."Preferred Bank Account Code")
                     {
@@ -299,14 +288,11 @@ page 80145 "Navigation Card"
                         ApplicationArea = Basic, Suite;
                         Importance = Additional;
                     }
-
                 }
-
             }
             group(Step5)
             {
                 Visible = Step5Visible;
-
                 group(Receiving)
                 {
                     Caption = 'Receiving';
@@ -333,7 +319,6 @@ page 80145 "Navigation Card"
                     field("Over-Receipt Code"; Rec."Over-Receipt Code")
                     {
                         ApplicationArea = All;
-
                     }
                 }
             }
@@ -379,14 +364,11 @@ page 80145 "Navigation Card"
                     FinishAction();
                     Message('Navigation Posted');
                 end;
-
             }
         }
     }
 
-
     trigger OnOpenPage();
-
     begin
         Step := Step::Start;
         EnableControls();
@@ -395,7 +377,6 @@ page 80145 "Navigation Card"
     local procedure EnableControls();
     begin
         ResetControls();
-
         case Step of
             Step::Start:
                 ShowStep1();
@@ -412,7 +393,6 @@ page 80145 "Navigation Card"
 
     local procedure FinishAction();
     begin
-
         CurrPage.Close();
     end;
 
@@ -422,7 +402,6 @@ page 80145 "Navigation Card"
             Step := Step - 1
         ELSE
             Step := Step + 1;
-
         EnableControls();
     end;
 
@@ -437,7 +416,6 @@ page 80145 "Navigation Card"
     begin
         Step1Visible := false;
         Step2Visible := true;
-
         FinishActionEnabled := false;
         BackActionEnabled := true;
         NextActionEnabled := true;
@@ -448,7 +426,6 @@ page 80145 "Navigation Card"
         Step1Visible := false;
         Step2Visible := false;
         Step3Visible := true;
-
         FinishActionEnabled := false;
         BackActionEnabled := true;
         NextActionEnabled := true;
@@ -460,8 +437,6 @@ page 80145 "Navigation Card"
         Step2Visible := false;
         Step3Visible := false;
         Step4Visible := true;
-
-
         FinishActionEnabled := false;
         BackActionEnabled := true;
         NextActionEnabled := true;
@@ -474,7 +449,6 @@ page 80145 "Navigation Card"
         Step3Visible := false;
         Step4Visible := false;
         Step5Visible := true;
-
         NextActionEnabled := false;
         FinishActionEnabled := true;
         BackActionEnabled := false;
@@ -485,7 +459,6 @@ page 80145 "Navigation Card"
         FinishActionEnabled := false;
         BackActionEnabled := true;
         NextActionEnabled := true;
-
         Step1Visible := false;
         Step5Visible := false;
     end;
@@ -500,6 +473,4 @@ page 80145 "Navigation Card"
         BackActionEnabled: Boolean;
         FinishActionEnabled: Boolean;
         NextActionEnabled: Boolean;
-
-
 }
