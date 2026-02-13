@@ -3,9 +3,17 @@ table 80143 "Navigation Header"
     Caption = 'Navigation Header';
     fields
     {
+
+        field(60; "Order Series"; Code[20])
+        {
+            Caption = 'Order Series';
+            TableRelation = "No. Series";
+        }
+
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
+            Editable = false;
         }
         field(2; Name; Text[100])
         {
@@ -364,6 +372,10 @@ table 80143 "Navigation Header"
         field(58; "No. Series"; code[20])
         {
         }
+        field(59; "Payments (LCY)"; Decimal)
+        {
+            Caption = 'Payments (LCY)';
+        }
     }
     keys
     {
@@ -380,12 +392,39 @@ table 80143 "Navigation Header"
     // begin
     //     if "No." = '' then begin
     //         recManfSet.Get();
-    //         recManfSet.TestField("Employee Grivance Nos");
-    //         NoSeriesMgt.InitSeries(recManfSet."Employee Grivance Nos", xRec."No. Series", 0D, rec."No.", "No. Series");
+    //         recManfSet.TestField("Nevigation Nos");
+    //         NoSeriesMgt.InitSeries(recManfSet., xRec."No. Series", 0D, rec."No.", "No. Series");
     //     end
     // end;
 
+
+    local procedure AssistEdit(): Boolean
+    var
+        NoSeriesMgt: Codeunit "No. Series";
+    begin
+        if "No." = '' then begin
+            "No." := NoSeriesMgt.GetNextNo("Order Series", WorkDate(), true);
+            exit(true);
+
+        end;
+    end;
+
+
+
+    trigger OnInsert()
+    var
+        NoSeriesMgt: Codeunit "No. Series";
+    begin
+        if "No." = '' then begin
+            TestField("Order Series");
+            "No." := NoSeriesMgt.GetNextNo("Order Series", WorkDate(), true);
+        end;
+
+    end;
+
+
+
     var
         recManfSet: Record "Manufacturing Setup";
-        // NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeriesMgt: Codeunit "No. Series";
 }

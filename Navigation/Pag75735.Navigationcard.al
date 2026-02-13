@@ -2,7 +2,7 @@ page 80145 "Navigation Card"
 {
     Caption = 'Navigation Card';
     PageType = NavigatePage;
-    SourceTable = Vendor;
+    SourceTable = "Navigation Header";
 
     layout
     {
@@ -14,6 +14,10 @@ page 80145 "Navigation Card"
                 group(General)
                 {
                     Caption = 'General';
+                    field("Order Series"; Rec."Order Series")
+                    {
+                        ApplicationArea = All;
+                    }
 
                     field("No."; Rec."No.")
                     {
@@ -462,6 +466,35 @@ page 80145 "Navigation Card"
         Step1Visible := false;
         Step5Visible := false;
     end;
+
+
+
+    local procedure GenerateOrderNo()
+    var
+        NoSeriesMgt: Codeunit "No. Series";
+        OrderNo: code[20];
+    begin
+        if rec."Order Series" = '' then
+            Error('Please Select the order series first');
+
+        if Rec."No." <> '' then
+            if not Confirm('An order no already exists. Do you wont to generate a new one ?', false) then
+                exit;
+        OrderNo := NoSeriesMgt.GetNextNo(rec."Order Series", WorkDate(), true);
+        if Rec.Get(rec."No.") then begin
+            rec."No." := OrderNo;
+            rec.Modify(true)
+        end else begin
+            rec.Init();
+            rec."No." := OrderNo;
+            rec.Insert(true);
+        end;
+        Message('New record no generated : %1', rec."No.");
+        CurrPage.Update(false);
+    end;
+
+
+
 
     var
         Step1Visible: Boolean;

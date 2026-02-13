@@ -3,7 +3,7 @@ page 80144 "Navigation List"
     ApplicationArea = All;
     Caption = 'Navigation List';
     PageType = List;
-    SourceTable = Vendor;
+    SourceTable = "Navigation Header";
     UsageCategory = Lists;
     CardPageId = "Navigation Card";
 
@@ -13,6 +13,10 @@ page 80144 "Navigation List"
         {
             repeater(General)
             {
+                field("Order Series"; Rec."Order Series")
+                {
+                    ApplicationArea = All;
+                }
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
