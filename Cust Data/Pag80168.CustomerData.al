@@ -13,10 +13,18 @@ page 80168 "Customer Data"
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
+                    StyleExpr = MyStyleExprs;
                 }
+
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
+
+                }
+                field(Balance; Rec.Balance)
+                {
+                    ApplicationArea = All;
+                    StyleExpr = MyStyleExpr;
                 }
                 field("Last Date Modified"; Rec."Last Date Modified")
                 {
@@ -38,6 +46,7 @@ page 80168 "Customer Data"
                 {
                     ApplicationArea = All;
                 }
+
             }
         }
     }
@@ -68,12 +77,6 @@ page 80168 "Customer Data"
                         Message(Text000);
                 end;
             }
-
-
-
-
-
-
             action(CalcSum)
             {
                 trigger OnAction()
@@ -93,6 +96,23 @@ page 80168 "Customer Data"
 
 
 
+
+    trigger OnAfterGetRecord();
+    begin
+        MyStyleExpr := 'Standard';
+        if (rec.Balance < 10000) then
+            MyStyleExpr := 'Ambiguous'
+        else
+            MyStyleExpr := 'Unfavorable';
+
+        if (rec."No." <= '30000') then
+            MyStyleExprs := 'Favorable'
+        else
+            MyStyleExprs := 'StrongAccent';
+    end;
+
     var
         CustomerRec: Record Customer;
+        MyStyleExpr: Text;
+        MyStyleExprs: Text;
 }

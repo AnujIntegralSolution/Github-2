@@ -376,6 +376,7 @@ page 80145 "Navigation Card"
     begin
         Step := Step::Start;
         EnableControls();
+        rec."Order Series" := 'NVG';
     end;
 
     local procedure EnableControls();

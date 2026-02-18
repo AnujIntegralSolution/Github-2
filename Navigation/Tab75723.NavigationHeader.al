@@ -423,7 +423,6 @@ table 80143 "Navigation Header"
     end;
 
 
-
     var
         recManfSet: Record "Manufacturing Setup";
         NoSeriesMgt: Codeunit "No. Series";
