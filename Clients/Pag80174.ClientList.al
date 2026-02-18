@@ -4,9 +4,15 @@ page 80174 "Client List"
     Caption = 'Client List';
     PageType = List;
     SourceTable = "Clients Header";
-    UsageCategory = Lists;
+    UsageCategory = Tasks;
     CardPageId = "Client Card";
     Editable = false;
+    AutoSplitKey = true;
+    DelayedInsert = false;
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    SaveValues = true;
+    SourceTableView = sorting("No.");
 
     layout
     {
@@ -64,13 +70,13 @@ page 80174 "Client List"
         {
             action(ImportMultipleCustomerPictures)
             {
-                Caption = 'Import Multiple Customer Pictures';
+                Caption = 'Import Pictures';
                 ApplicationArea = All;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 Image = Import;
-                ToolTip = 'Import Multiple Customer Pictures';
+                ToolTip = 'Import Pictures';
 
                 trigger OnAction()
                 var
