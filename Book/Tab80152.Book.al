@@ -52,6 +52,12 @@ table 80152 Book
             Caption = 'Publish Date';
             NotBlank = true;
         }
+
+        field(10; "Rent Price"; Decimal)
+        {
+            Caption = 'Rent Price';
+        }
+
     }
     keys
     {

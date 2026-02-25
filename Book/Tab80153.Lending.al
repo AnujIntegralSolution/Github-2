@@ -8,7 +8,19 @@ table 80153 Lending
         field(1; "Leanding ID"; Code[20])
         {
             Caption = 'Leanding ID';
-            NotBlank = true;
+            trigger OnValidate()
+
+            var
+                Pattern: Text;
+                Input: Text;
+                Regex: Codeunit Regex;
+            begin
+                Pattern := '[A-Z]{2}[0-9]{3}';
+                if regex.IsMatch(Rec."Leanding ID", Pattern, 0) then
+                    Message('Match')
+                else
+                    Error('Please enter the valid input');
+            end;
         }
         field(2; "Book ID"; Code[20])
         {
@@ -47,15 +59,19 @@ table 80153 Lending
             Caption = 'Due Date';
             NotBlank = true;
         }
-        field(9; "Fine Amount"; Decimal)
+        field(9; "Bill Amount"; Decimal)
         {
-            Caption = 'Fine Amount';
+            Caption = 'Bill Amount';
             NotBlank = true;
         }
         field(10; "OverDue Date"; Date)
         {
             Caption = 'OverDue Date';
             NotBlank = true;
+        }
+        field(11; "Rent Price"; Decimal)
+        {
+            Caption = 'Rent Price';
         }
     }
     keys

@@ -6,7 +6,7 @@ query 80142 PersonswhoPaidFine
     {
         dataitem(Lending; Lending)
         {
-            DataItemTableFilter = "Fine Amount" = filter(> 0);
+            DataItemTableFilter = "Bill Amount" = filter(> 0);
 
             column(Leanding_ID; "Leanding ID")
             {
@@ -16,7 +16,7 @@ query 80142 PersonswhoPaidFine
             {
                 Caption = 'Customer Name';
             }
-            column(Fine_Amount; "Fine Amount")
+            column(Bill_Amount; "Bill Amount")
             {
                 Caption = 'Fine Amount';
             }

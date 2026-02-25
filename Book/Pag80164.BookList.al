@@ -68,6 +68,10 @@ page 80164 "Book List"
                     ApplicationArea = All;
                     ShowMandatory = true;
                 }
+                field("Rent Price"; Rec."Rent Price")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }

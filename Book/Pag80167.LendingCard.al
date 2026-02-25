@@ -19,12 +19,26 @@ page 80167 "Lending Card"
                     ShowMandatory = true;
                     Editable = ReqFieldEditable;
                 }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    ApplicationArea = All;
+                    ShowMandatory = true;
+                    Editable = ReqFieldEditable;
+                }
                 field("Book ID"; Rec."Book ID")
                 {
                     ApplicationArea = All;
                     ShowMandatory = true;
-                    TableRelation = book."Book ID";
+                    TableRelation = Book."Book ID";
                     Editable = ReqFieldEditable;
+
+                    trigger OnValidate()
+                    var
+                        RecBK: Record Book;
+                    begin
+                        if RecBK.get(rec."Book ID") then
+                            rec."Rent Price" := RecBK."Rent Price";
+                    end;
                 }
                 field("Member ID"; Rec."Member ID")
                 {
@@ -42,8 +56,8 @@ page 80167 "Lending Card"
                     begin
                         if Rec."Leanding Date" <> today then
                             Error('Invalid Leanding Date');
-                        Rec."Return Date" := rec."Leanding Date" + 30;
-                        rec."Due Date" := rec."Leanding Date" + 30 + 7;
+                        Rec."Return Date" := rec."Leanding Date" + 10;
+                        rec."Due Date" := rec."Return Date" + 5;
                     end;
 
 
@@ -59,13 +73,38 @@ page 80167 "Lending Card"
                     ShowMandatory = true;
                     Editable = false;
                 }
-                field("Fine Amount"; Rec."Fine Amount")
+                field("Rent Price"; Rec."Rent Price")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+
+                field("OverDue Date"; Rec."OverDue Date")
+                {
+                    ApplicationArea = All;
+                    Editable = OverdueEditable;
+
+                    trigger OnValidate()
+                    var
+                        Total: Decimal;
+                        Counts: Decimal;
+                    begin
+                        if Rec."OverDue Date" <> 0D then
+                            if Rec."Due Date" < rec."OverDue Date" then begin
+                                Total := rec."OverDue Date" - rec."Due Date";
+                                rec."Bill Amount" := Total * rec."Rent Price";
+
+                            end;
+                        if Rec."Due Date" < rec."OverDue Date" then
+                            rec.Status := rec.Status::Overdue;
+                    end;
+                }
+                field("Bill Amount"; Rec."Bill Amount")
                 {
                     ApplicationArea = All;
                     ShowMandatory = true;
-                    Editable = ReqFieldEditable;
+                    Editable = false;
                 }
-
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = All;
@@ -85,28 +124,7 @@ page 80167 "Lending Card"
                             rec.Delete();
                     end;
                 }
-                field("Customer Name"; Rec."Customer Name")
-                {
-                    ApplicationArea = All;
-                    ShowMandatory = true;
-                    Editable = ReqFieldEditable;
-                }
 
-                field("OverDue Date"; Rec."OverDue Date")
-                {
-                    ApplicationArea = All;
-                    Editable = OverdueEditable;
-
-                    trigger OnValidate()
-                    begin
-                        if Rec."OverDue Date" <> 0D then
-                            if Rec."Due Date" < rec."OverDue Date" then
-                                rec."Fine Amount" += 100;
-
-                        if Rec."Due Date" < rec."OverDue Date" then
-                            rec.Status := rec.Status::Overdue;
-                    end;
-                }
             }
         }
     }
@@ -123,13 +141,15 @@ page 80167 "Lending Card"
                     Promoted = true;
                     Image = Insert;
 
-
                     trigger OnAction()
+                    var
+                        recLD: Record Lending;
                     begin
-                        rec."Member ID" := 'MI001';
-                        rec."Customer Name" := 'Shubh';
-
-
+                        rec.Init();
+                        rec."Leanding ID" := 'LD0001';
+                        rec."Member ID" := 'MB0001';
+                        rec."Customer Name" := 'Test';
+                        rec.Insert();
                     end;
                 }
             }
@@ -149,6 +169,9 @@ page 80167 "Lending Card"
 
         ReqFieldEditable: Boolean;
         OverdueEditable: Boolean;
+        Pattern: Text;
+        Input: Text;
+        Regex: Codeunit Regex;
 
 }
 

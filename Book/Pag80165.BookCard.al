@@ -49,6 +49,10 @@ page 80165 "Book Card"
                 {
                     ApplicationArea = All;
                 }
+                field("Rent Price"; Rec."Rent Price")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }

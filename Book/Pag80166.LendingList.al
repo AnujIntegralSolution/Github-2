@@ -17,6 +17,10 @@ page 80166 "Lending List"
                 {
                     ApplicationArea = All;
                 }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    ApplicationArea = All;
+                }
                 field("Book ID"; Rec."Book ID")
                 {
                     ApplicationArea = All;
@@ -37,19 +41,18 @@ page 80166 "Lending List"
                 {
                     ApplicationArea = All;
                 }
+                field("Bill Amount"; Rec."Bill Amount")
+                {
+                    ApplicationArea = All;
+                }
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = All;
                 }
-                field("Fine Amount"; Rec."Fine Amount")
-                {
-                    ApplicationArea = All;
-                }
-                field("Customer Name"; Rec."Customer Name")
-                {
-                    ApplicationArea = All;
-                }
+
             }
         }
     }
+
+
 }

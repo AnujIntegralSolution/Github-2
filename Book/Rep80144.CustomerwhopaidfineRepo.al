@@ -4,16 +4,13 @@ report 80144 CustomerwhopaidfineRepo
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultRenderingLayout = layoutName;
-
-
-
     dataset
     {
         dataitem(Lending; Lending)
         {
             column(Customer_Name; "Customer Name")
             { }
-            column(Fine_Amount; "Fine Amount")
+            column(Bill_Amount; "Bill Amount")
             { }
             column(Book_ID; "Book ID")
             { }
