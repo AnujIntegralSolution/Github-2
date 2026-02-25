@@ -2,6 +2,7 @@ page 80176 "Blob Test Page"
 {
     PageType = Card;
     SourceTable = "Blob Demo";
+    ApplicationArea = All;
     layout
     {
         area(Content)

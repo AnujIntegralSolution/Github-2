@@ -12,7 +12,6 @@ page 80162 MyAddress
             group(General)
             {
                 Caption = 'General';
-
             }
         }
     }

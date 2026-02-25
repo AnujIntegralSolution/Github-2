@@ -1,4 +1,4 @@
-codeunit 80104 "Import Warehouse Item Journal"
+codeunit 80144 "Import Warehouse Item Journal"
 {
     trigger OnRun()
     begin
