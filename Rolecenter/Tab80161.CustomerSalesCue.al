@@ -1,12 +1,10 @@
-table 80150 "Cust. sales cue"
+table 80161 "Customer Sales Cue"
 {
-    Caption = 'Cust. sales cue';
-
+    Caption = 'Customer Sales Cue';
 
     fields
     {
-
-        field(1; "Customer No."; Code[20])
+        field(1; "Customer No."; code[20])
         {
             Caption = 'Customer No.';
             TableRelation = Customer;
@@ -26,10 +24,10 @@ table 80150 "Cust. sales cue"
             FieldClass = FlowField;
         }
 
-        field(4; Amount; Decimal)
+        field(4; "Unit Price"; Decimal)
         {
-            CalcFormula = sum("Sales Line".Amount where("Document Type" = filter(order), "sell-to Customer No." = field("Customer No.")));
-            Caption = 'Amount';
+            CalcFormula = sum("Sales Line"."Unit Price" where("Document Type" = filter(order), "sell-to Customer No." = field("Customer No.")));
+            Caption = 'Unit Price';
             FieldClass = FlowField;
         }
 
@@ -47,6 +45,7 @@ table 80150 "Cust. sales cue"
             FieldClass = FlowField;
 
         }
+
     }
     keys
     {

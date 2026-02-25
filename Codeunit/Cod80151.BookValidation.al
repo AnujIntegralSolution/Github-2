@@ -7,14 +7,15 @@ codeunit 80151 BookISBNValidation
         i: Integer;
     begin
         IsNumeric := true;
-        if StrLen(ISBNNumber) <> 13 then
+        if StrLen(ISBNNumber) <> 7 then
             exit(false);
         for i := 1 to StrLen(ISBNNumber) do begin
-            if not (ISBNNumber[i] in ['0' .. '9']) then begin
+            if not (ISBNNumber[i] in ['A' .. 'Z', '0' .. '9']) then begin
                 IsNumeric := false;
                 break;
             end;
         end;
         exit(IsNumeric);
+        Error('Enter full Code');
     end;
 }

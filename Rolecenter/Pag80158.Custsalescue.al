@@ -1,9 +1,9 @@
-page 80158 "Cust. sales cue"
+page 80158 "Customer sales cue card"
 {
     ApplicationArea = All;
-    Caption = 'Cust. sales cue';
-    PageType = CardPart;
-    SourceTable = "Cust. sales cue";
+    Caption = 'Customer sales cue card';
+    PageType = List;
+    SourceTable = "Customer Sales Cue";
     layout
     {
         area(Content)
@@ -11,14 +11,20 @@ page 80158 "Cust. sales cue"
             cuegroup(General)
             {
                 ShowCaption = false;
+                field("Customer No."; Rec."Customer No.")
+                {
+                    ApplicationArea = All;
+
+                }
                 field("No. of Orders"; Rec."No. of Orders")
                 {
                     ApplicationArea = All;
                     DrillDownPageId = "Sales Order List";
+
                 }
 
 
-                field(Amount; rec.Amount)
+                field("Unit Price"; rec."Unit Price")
                 {
                     ApplicationArea = All;
                     DrillDownPageId = "Sales Lines";

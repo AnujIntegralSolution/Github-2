@@ -23,6 +23,7 @@ page 80164 "Book List"
                 {
                     ApplicationArea = All;
                     ShowMandatory = true;
+                    ToolTip = 'Enter 13 Digit ISBN Number';
                     trigger OnValidate()
                     var
                         ISBN: Codeunit BookISBNValidation;
@@ -62,7 +63,7 @@ page 80164 "Book List"
                     ApplicationArea = All;
                     ShowMandatory = true;
                 }
-                field("Publisher Date"; Rec."Publisher Date")
+                field("Publish Date"; Rec."Publish Date")
                 {
                     ApplicationArea = All;
                     ShowMandatory = true;

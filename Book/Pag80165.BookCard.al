@@ -45,7 +45,7 @@ page 80165 "Book Card"
                 {
                     ApplicationArea = All;
                 }
-                field("Publisher Date"; Rec."Publisher Date")
+                field("Publish Date"; Rec."Publish Date")
                 {
                     ApplicationArea = All;
                 }

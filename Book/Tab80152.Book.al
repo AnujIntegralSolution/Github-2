@@ -47,9 +47,9 @@ table 80152 Book
             NotBlank = true;
             OptionMembers = Fictio,NonFiction,Science,History,Mathematics,Tecnology,Art,Music,Health,Travel;
         }
-        field(9; "Publisher Date"; Date)
+        field(9; "Publish Date"; Date)
         {
-            Caption = 'Publisher Date';
+            Caption = 'Publish Date';
             NotBlank = true;
         }
     }

@@ -21,7 +21,6 @@ table 80147 "Field Selection Header"
         {
             Caption = 'Field Name';
         }
-
     }
     keys
     {

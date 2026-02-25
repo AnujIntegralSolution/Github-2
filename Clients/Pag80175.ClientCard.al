@@ -12,17 +12,31 @@ page 80175 "Client Card"
             field("No."; Rec."No.")
             {
                 ApplicationArea = All;
+                trigger OnValidate()
+                begin
+                    Pattern := '[A-Z]{2}[0-9]{3}';
+                    if regex.IsMatch(Rec."No.", Pattern, 0) then
+                        Message('Match')
+                    else
+                        Error('Please enter the valid input');
+                end;
             }
             field(Name; Rec.Name)
             {
                 ApplicationArea = All;
             }
-
-            field(Address; Rec.Address)
+            field("Item No."; Rec."Item No.")
             {
                 ApplicationArea = All;
             }
-
+            field(Description; Rec.Description)
+            {
+                ApplicationArea = All;
+            }
+            field("Unit Price"; Rec."Unit Price")
+            {
+                ApplicationArea = All;
+            }
             field("Last Date Modified"; Rec."Last Date Modified")
             {
                 ApplicationArea = All;
@@ -39,22 +53,12 @@ page 80175 "Client Card"
                     StyleExprtxt := changeColor.GetColor(Rec);
                 end;
             }
-            field("Item No."; Rec."Item No.")
-            {
-                ApplicationArea = All;
-            }
-            field(Description; Rec.Description)
-            {
-                ApplicationArea = All;
-            }
-            field("Unit Cost"; Rec."Unit Price")
-            {
-                ApplicationArea = All;
-            }
+
+
+
         }
         area(FactBoxes)
         {
-
             part(CustomerPicture; "Customer Picture")
             {
                 ApplicationArea = All;
@@ -72,4 +76,7 @@ page 80175 "Client Card"
     var
         StyleExprtxt: text[50];
         changeColor: Codeunit "Change Color";
+        Pattern: Text;
+        Input: Text;
+        Regex: Codeunit Regex;
 }

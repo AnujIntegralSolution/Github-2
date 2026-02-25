@@ -33,12 +33,11 @@ page 80174 "Client List"
                 {
                     ApplicationArea = All;
                 }
-
-                field(Address; Rec.Address)
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item No."; Rec."Item No.")
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
@@ -49,21 +48,13 @@ page 80174 "Client List"
                     StyleExpr = StyleExprtxts;
                 }
 
-                field(Description; Rec.Description)
-                {
-                    ApplicationArea = All;
-                }
                 field("Last Date Modified"; Rec."Last Date Modified")
                 {
                     ApplicationArea = All;
-                    StyleExpr = StyleExprtxt;
                 }
             }
         }
     }
-
-
-
     actions
     {
         area(Processing)
@@ -103,6 +94,26 @@ page 80174 "Client List"
         else
             StyleExprtxts := 'Favorable';
     end;
+
+
+
+    trigger OnOpenPage();
+    var
+        CL: Record "Clients Header";
+    begin
+        CL.setfilter("No.", '50000..');
+        if CL.findset(false) then
+            repeat
+                if CL."No." = '60000' then
+                    CL.Delete();
+            until CL.Next() = 0;
+    end;
+
+
+
+
+
+
 
     ///----ST----ImportPictures--End-------///
     var

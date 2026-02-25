@@ -32,6 +32,7 @@ table 80158 "Clients Header"
                 if recItem.get(rec."Item No.") then begin
                     rec.Description := recItem.Description;
                     rec."Unit Price" := recItem."Unit Price";
+                    rec."Last Date Modified" := recItem."Last Date Modified";
                 end;
             end;
         }
